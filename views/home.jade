@@ -1,0 +1,34 @@
+extends layout
+
+block content
+	div.header
+		h1 $ git date
+		h2 Find your date on github!
+		
+	if status
+		script(type='text/javascript')
+			profileData = {
+				"userId": '#{userId}',
+				"location":'#{location}',
+				"language":'#{language}',
+				"gender": '#{gender}'
+			};
+		div.content.center
+			div.pure-u-1
+				h2 Hello #{name}! 
+		div.content.center
+			div.pure-u-1-2.matches
+				div.match
+					a(href="https://github.com/#{userId}")
+						img(src="http://www.gravatar.com/avatar/#{gravatar_id}?s=200")
+			div#loading.pure-u-1-2
+				img(src="/images/spinner.gif").spinner
+				span.caption
+					Fetching your perfect match...
+			div.pure-u-1
+				div.result You are from #{location}, your favorite language is #{language}. 
+
+		script(src="/javascripts/match.js")
+	else
+		div.content.center
+			Sorry, try again!

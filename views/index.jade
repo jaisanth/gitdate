@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	div.header
+		h1 $ git date
+		h2 Find your date on github!
+		
+	if login
+		div.content.center
+			div.pure-u-1
+				img(src="/images/lovecat-small.png").center
+			div.pure-u-1
+				a(href="/login",title="Login with Github")
+					button.pure-button.pure-button-primary.pure-button-xlarge.pink Login with Github
+
+	else
+		div.content.center
+			hello world
+	
